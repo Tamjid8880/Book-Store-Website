@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Cart System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to bottom, #dd2476, #ff512f);
+            padding: 10px;
+            color: white;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .container {
+            margin-top: 60px;
+        }
+        
+        .products,
+        .cart {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .product,
+        .cart-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product h2,
+        .cart-item h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .product button,
+        .cart-item button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff416c;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .product button:hover,
+        .cart-item button:hover {
+            background-color: #ff4b2b;
+        }
+        
+        .cart {
+            border-top: 2px solid #ddd;
+            margin-top: 20px;
+            padding-top: 20px;
+            width: 100%;
+        }
+        
+        .cart-summary {
+            width: 100%;
+            text-align: right;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>My Online Store</h1>
+        <div class="cart-summary">
+            <strong>Cart Total: $<span id="cart-total">0.00</span></strong>
+        </div>
+    </header>
+    <div class="container">
+        <div class="products">
+            <div class="product" data-price="19.99">
+                <h2>Product 1</h2>
+                <p>Price: $19.99</p>
+                <button onclick="addToCart(this)">Purchase</button>
+            </div>
+            <div class="product" data-price="29.99">
+                <h2>Product 2</h2>
+                <p>Price: $29.99</p>
+                <button onclick="addToCart(this)">Purchase</button>
+            </div>
+            <div class="product" data-price="39.99">
+                <h2>Product 3</h2>
+                <p>Price: $39.99</p>
+                <button onclick="addToCart(this)">Purchase</button>
+            </div>
+        </div>
+        <div class="cart">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+        </div>
+    </div>
+
+    <script>
+        let cartTotal = 0;
+
+        function addToCart(button) {
+            const product = button.parentElement;
+            const price = parseFloat(product.getAttribute('data-price'));
+            const productName = product.querySelector('h2').innerText;
+
+            // Create cart item
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <h2>${productName}</h2>
+                <p>Price: $${price.toFixed(2)}</p>
+                <button onclick="removeFromCart(this, ${price})">Remove</button>
+            `;
+
+            // Add cart item to cart
+            document.getElementById('cart-items').appendChild(cartItem);
+
+            // Update cart total
+            cartTotal += price;
+            document.getElementById('cart-total').innerText = cartTotal.toFixed(2);
+        }
+
+        function removeFromCart(button, price) {
+            const cartItem = button.parentElement;
+            cartItem.remove();
+
+            // Update cart total
+            cartTotal -= price;
+            document.getElementById('cart-total').innerText = cartTotal.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>

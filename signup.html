@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            display: flex;
+            width: 900px;
+            height: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .form-container {
+            flex: 1;
+            padding: 50px;
+            background-color: white;
+        }
+        
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .form-container input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-container button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff416c;
+            background-image: linear-gradient(to right, #ff4b2b, #ff416c);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .form-container button:hover {
+            background-image: linear-gradient(to right, #ff416c, #ff4b2b);
+        }
+        
+        .form-container .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-container .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        
+        .welcome-container {
+            flex: 1;
+            background-image: linear-gradient(to right, #ff4b2b, #ff416c);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 50px;
+        }
+        
+        .welcome-container h2 {
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+        
+        .welcome-container p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .welcome-container button {
+            padding: 15px 30px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: transparent;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .welcome-container button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff758c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Create Account</h2>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button>Sign Up</button>
+        </div>
+        <div class="welcome-container">
+            <h2>Welcome to signup</h2>
+            <p>Already have an account?</p>
+            <a href="login.html" class="btn">Sign In</a>
+        </div>
+    </div>
+</body>
+
+</html>
